@@ -1,27 +1,27 @@
 
 视频云对外sdk的nodejs版本。
 
-# @vcloud/openapi-core
-封装了签名、请求top网关等核心业务逻辑， 用户使用类似node-fetch请求的方式请求openapi。
+# vcloud-sdk-nodejs
+封装了签名、发送请求等核心业务逻辑 ; 同时内置了Vod标准API
 
 
 ### 安装
 ```javascript
 //use npm 
-npm install --save vcloud-sdk-nodejs
+npm install vcloud-sdk-nodejs --save
 //use yarn 
 yarn add vcloud-sdk-nodejs
 ```
 
 ### 基本使用方式：
 ```
-const Client = require('@vcloud/openapi-core');
+const Client = require('vcloud-sdk-nodejs');
 
 const clientOptions = {
   service: '<serviceName>',
   accesskey: '<accessKeyId>',
   secretkey: '<accessKeySecret>',
-  endpoint: '<endpoint>',  // top网关对外域名，目前只有vod支持对外， 默认是vod.bytedanceapi.com
+  endpoint: '<endpoint>',
   version: '<apiVersion>'
 }
 
@@ -63,7 +63,7 @@ client.addPostHandler({
 
 ### 插件
 ```
-拦截器的集合
+//拦截器集合
 const plugin = () => {
   before: [],
   post: []
@@ -71,9 +71,11 @@ const plugin = () => {
 ```
 
 # standard sdk
-standard sdk指的是和具体服务相关的sdk， 在@vcloud/openapi-core的基础上进行封装， 提供给用户某一个服务相关的更快捷的使用方式。以ecs的标准api为例
+standard sdk指的是和具体服务相关的sdk，提供给用户更快捷的使用方式。以Vod服务的使用为例：
 
 ```
+const VodClient = require('vcloud-sdk-nodejs/services/vod');
+
 const client = new VodClient({
     accesskey: '<accessKeyId>',
     secretkey: '<accessKeySecret>',

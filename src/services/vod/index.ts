@@ -130,3 +130,4 @@ class VodClient {
 }
 
 export default VodClient;
+module.exports = VodClient;

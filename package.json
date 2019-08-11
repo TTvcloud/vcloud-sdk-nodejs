@@ -1,7 +1,7 @@
 {
-  "name": "@vcloud-service/openapi-core",
+  "name": "vcloud-sdk-nodejs",
   "version": "0.0.1",
-  "description": "openapi nodejs sdk",
+  "description": "vcloud nodejs sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -10,21 +10,40 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://code.byted.org/toutiao-fe/vcloud-service"
+    "url": "https://github.com/TTvcloud/vcloud-sdk-nodejs"
   },
   "dependencies": {
-    "@fe/logid": "^1.0.2",
     "ajv": "^6.5.4",
     "aws-sdk": "^2.297.0",
     "deepmerge": "^2.1.1",
     "node-fetch": "^2.6.0",
     "query-string": "^5.1.1",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "winston": "^3.2.1",
+    "winston-transport": "^4.3.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/config-lerna-scopes": "^8.0.0",
     "@types/deepmerge": "^2.2.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.5",
     "@types/node-fetch": "^2.3.4",
-    "@types/query-string": "^6.3.0"
+    "@types/query-string": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.0",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "lerna": "^3.14.1",
+    "prettier": "^1.17.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
   },
   "scripts": {
     "build": "rm -rf lib && tsc",

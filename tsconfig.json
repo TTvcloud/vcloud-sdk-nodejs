@@ -27,6 +27,7 @@
     "declaration": true,
     "downlevelIteration": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "types": [
       "jest",
       "node"
