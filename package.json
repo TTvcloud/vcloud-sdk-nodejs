@@ -1,0 +1,47 @@
+{
+  "name": "@vcloud-service/openapi-core",
+  "version": "0.0.1",
+  "description": "openapi nodejs sdk",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://code.byted.org/toutiao-fe/vcloud-service"
+  },
+  "dependencies": {
+    "@fe/logid": "^1.0.2",
+    "ajv": "^6.5.4",
+    "aws-sdk": "^2.297.0",
+    "deepmerge": "^2.1.1",
+    "node-fetch": "^2.6.0",
+    "query-string": "^5.1.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/deepmerge": "^2.2.0",
+    "@types/node-fetch": "^2.3.4",
+    "@types/query-string": "^6.3.0"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "build:watch": "rm -rf lib && tsc -w",
+    "lint": "eslint . --ext ts,js --fix",
+    "lint-check": "eslint . --ext ts,js",
+    "prepublish": "npm run build",
+    "test": "jest --config ./jest.config.json --coverage --env=node"
+  },
+  "keywords": [
+    "openapi",
+    "node",
+    "sdk"
+  ],
+  "author": "vcloud-fe",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.3.0"
+  }
+}
