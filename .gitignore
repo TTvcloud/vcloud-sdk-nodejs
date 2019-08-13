@@ -79,8 +79,8 @@ jspm_packages/
 !.vscode/extensions.json
 
 ##### Custom #####
+yarn.lock
 dist
 _dev_build
 .idea/
 lib
-yarn.lock
