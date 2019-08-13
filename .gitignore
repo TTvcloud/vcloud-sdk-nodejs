@@ -82,4 +82,5 @@ jspm_packages/
 dist
 _dev_build
 .idea/
-output
+lib
+yarn.lock
