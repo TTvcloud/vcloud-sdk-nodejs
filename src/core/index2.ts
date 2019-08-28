@@ -2,7 +2,7 @@ import * as AWS from '../tools/v4';
 import * as util from '../tools/util';
 import _debug from 'debug';
 import assert from 'assert';
-import fetch from 'node-fetch';
+import requestPromise from 'request-promise';
 import InterceptorManager from './interceptor-manager';
 import Logger from '../tools/logger';
 import qs from 'querystring';
@@ -165,8 +165,19 @@ class Client {
 
     // throw new Error(JSON.stringify({ code: res.status, body: 'asdasdas' }));
 
-
-    return fetch(fetchOptions.url, {
+    if(this._configs.request) {
+      return this._configs.request({
+        url: fetchOptions.url,
+        body: method === 'GET' || method === 'HEAD' ? undefined : fetchOptions.body,
+        method: fetchOptions.method,
+        headers: {
+          'x-tt-logid': logId,
+          ...headers,
+        },
+      });
+    }
+    return requestPromise({
+      uri: fetchOptions.url,
       body: method === 'GET' || method === 'HEAD' ? undefined : fetchOptions.body,
       method: fetchOptions.method,
       headers: {
@@ -175,7 +186,6 @@ class Client {
       },
     }).then(res => {
       throw new Error(JSON.stringify({ code: res.status, body: `${fetchOptions.url} Error` }));
-
     });
 
   }

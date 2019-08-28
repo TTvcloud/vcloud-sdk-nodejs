@@ -1,11 +1,11 @@
 import now from 'performance-now';
-import { Headers } from 'node-fetch';
+import { Headers } from 'request';
 import { URLSearchParams } from 'url';
 
 
 /**
  * 格式判断相关方法
- * @param fn 
+ * @param fn
  */
 function isFunc(fn) {
   return typeof fn === 'function';

@@ -1,5 +1,6 @@
 import _debug from 'debug';
-import fetch, { RequestInit } from 'node-fetch';
+import { CoreOptions } from 'request';
+import requestPromise from 'request-promise';
 import { FetchOptions } from '../models/service';
 
 const debug = _debug('openapi-request');
@@ -8,7 +9,7 @@ function dispatchRequest(options: FetchOptions) {
   return () => {
     const { method, url, headers, body, logId = '', timeout } = options;
 
-    const reqOptions: RequestInit = {
+    const reqOptions: CoreOptions = {
       body: method === 'GET' || method === 'HEAD' ? undefined : body,
       method,
       timeout,
@@ -20,7 +21,7 @@ function dispatchRequest(options: FetchOptions) {
 
     debug('reqOptions: ', reqOptions);
 
-    return fetch(url, reqOptions);
+    return requestPromise({uri: url, ...reqOptions});
   }
 }
 

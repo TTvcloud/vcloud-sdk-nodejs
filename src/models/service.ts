@@ -1,5 +1,16 @@
 import { IncomingHttpHeaders } from 'http';
-import { RequestInit } from 'node-fetch';
+import { CoreOptions } from 'request';
+import { RequestPromise } from 'request-promise';
+
+
+export interface ClientCustomRequest {
+  url: string,
+  method?: string,
+  body?: any,
+  headers: {
+    [key: string]: any
+  },
+}
 
 //客户端配置
 export interface ClientConfigs {
@@ -16,12 +27,13 @@ export interface ClientConfigs {
   needHeaders?: boolean;
   callCluster?: string;
   logger?: object;
+  request?: (request: ClientCustomRequest) => RequestPromise;
 }
 
 //请求配置
 export type RequestOptions = Partial<{
-  method: string;
   version: string;
+  method: string;
   path: string;
   logId: string;
   lockTime: boolean;
@@ -43,7 +55,7 @@ export type FetchOptions = RequestOptions & {
   timeout: number;
 };
 
-export interface ExtendRequestInit extends RequestInit {
+export interface ExtendRequestInit extends CoreOptions {
   url: string;
   query?: {
     [key: string]: any;
