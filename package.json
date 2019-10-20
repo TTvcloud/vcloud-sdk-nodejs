@@ -1,6 +1,6 @@
 {
   "name": "vcloud-sdk-nodejs",
-  "version": "0.0.1",
+  "version": "1.0.4",
   "description": "vcloud nodejs sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -50,7 +50,9 @@
     "build:watch": "rm -rf lib && tsc -w",
     "lint": "eslint . --ext ts,js --fix",
     "lint-check": "eslint . --ext ts,js",
-    "prepublish": "npm run build",
+    "patch": "npm run build && npm version patch && npm publish",
+    "minor": "npm run build && npm version minor && npm publish",
+    "major": "npm run build && npm version major && npm publish",
     "test": "jest --config ./jest.config.json --coverage --env=node"
   },
   "keywords": [

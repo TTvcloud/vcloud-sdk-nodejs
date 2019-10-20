@@ -1,19 +1,20 @@
-
-视频云对外sdk的nodejs版本。
+视频云对外 sdk 的 nodejs 版本。
 
 # vcloud-sdk-nodejs
-封装了签名、发送请求等核心业务逻辑 ; 同时内置了Vod标准API
 
+封装了签名、发送请求等核心业务逻辑 ; 同时内置了 Vod 标准 API
 
 ### 安装
+
 ```javascript
-//use npm 
+//use npm
 npm install vcloud-sdk-nodejs --save
-//use yarn 
+//use yarn
 yarn add vcloud-sdk-nodejs
 ```
 
 ### 基本使用方式：
+
 ```
 const Client = require('vcloud-sdk-nodejs');
 
@@ -36,7 +37,7 @@ const requestOptions = {
   body: any; //请求体，当method为get、options等无body的请求方法时设置无效
   query: {  //url请求参数
     [key: string]: any;
-  };  
+  };
   headers: {  //自定义请求头
     [key: string]: string;
   };
@@ -46,7 +47,9 @@ client.request(action, requestOptions);
 ```
 
 ### 添加拦截器
-支持在client请求接口的前后添加拦截器, 继续以上文声明的client实例为例
+
+支持在 client 请求接口的前后添加拦截器, 继续以上文声明的 client 实例为例
+
 ```
 //添加前置拦截器
 client.addPreHandler({
@@ -61,17 +64,9 @@ client.addPostHandler({
 })
 ```
 
-### 插件
-```
-//拦截器集合
-const plugin = () => {
-  before: [],
-  post: []
-}
-```
-
 # standard sdk
-standard sdk指的是和具体服务相关的sdk，提供给用户更快捷的使用方式。以Vod服务的使用为例：
+
+standard sdk 指的是和具体服务相关的 sdk，提供给用户更快捷的使用方式。以 Vod 服务的使用为例：
 
 ```
 const VodClient = require('vcloud-sdk-nodejs/services/vod');

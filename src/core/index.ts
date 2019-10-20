@@ -25,13 +25,10 @@ const defaultConfigs = {
 class Client {
   private readonly _configs: ClientConfigs;
   private _manager: InterceptorManager;
-  // private logger: object;
 
   constructor(configs: ClientConfigs) {
     this._configs = this.initConfigs(configs);
     this._manager = new InterceptorManager();
-    // this._manager = new InterceptorManager(this);
-    // this.logger = configs.logger || Logger.createLogger(configs.transports);
   }
 
   initConfigs(configs: ClientConfigs) {
@@ -82,8 +79,6 @@ class Client {
     this._manager.addPostHandler(handler);
     return this;
   }
-
-
 
   /**
    * @param action //请求的openapi的方法名
@@ -150,10 +145,8 @@ class Client {
       ...this._manager.preHandlers,
       dispatchRequest(fetchOptions),
       formatResponse(this._configs),
-      ...this._manager.postHandlers
+      ...this._manager.postHandlers,
     ];
-
-    // return util.excuteWaterful(chain);
 
     return new Query(chain).exec();
   }

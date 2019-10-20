@@ -2,10 +2,9 @@ import now from 'performance-now';
 import { Headers } from 'node-fetch';
 import { URLSearchParams } from 'url';
 
-
 /**
  * 格式判断相关方法
- * @param fn 
+ * @param fn
  */
 function isFunc(fn) {
   return typeof fn === 'function';
@@ -25,11 +24,7 @@ function isArray(t) {
 }
 
 function isHandler(t) {
-  if (typeof t === 'object'
-    && (
-      typeof t.resolve === 'function' || typeof t.reject === 'function'
-    )
-  ) return true;
+  if (typeof t === 'object' && (typeof t.resolve === 'function' || typeof t.reject === 'function')) return true;
   return false;
 }
 
@@ -41,9 +36,7 @@ function flatArray(t) {
   }, []);
 }
 
-
 function excuteWaterful(tasks) {
-
   const _tasks = flatArray(tasks);
 
   return _tasks.reduce((h, p) => {
@@ -54,7 +47,6 @@ function excuteWaterful(tasks) {
     return Promise.resolve(p);
   });
 }
-
 
 /**
  * 获取指定名称的请求头
@@ -101,8 +93,8 @@ function formatQuery(query) {
 }
 
 function formatBody(options) {
-  let body = '';
-  if (!options || !options.body) return body;
+  if (!options || !options.body) return;
+  let body = options.body;
   const contentType = (options.headers && options.headers['content-type']) || '';
 
   if (contentType.match(/application\/json/i)) {
@@ -132,7 +124,6 @@ export {
   isHandler,
   flatArray,
   excuteWaterful,
-
   getHeader,
   firstToUpperCase,
   formatParams,
