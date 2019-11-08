@@ -103,5 +103,8 @@ const policy: Policy = {
   ],
 };
 
-const res = client.SignSts2(policy, 60 * 60);
+client.SignSts2();
+client.SignSts2(policy);
+client.SignSts2(60 * 60);
+client.SignSts2(policy, 60 * 60);
 ```
