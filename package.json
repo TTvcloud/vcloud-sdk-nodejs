@@ -1,6 +1,6 @@
 {
   "name": "vcloud-sdk-nodejs",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "vcloud nodejs sdk",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
