@@ -1,9 +1,13 @@
-import VodClient from '../services/vod';
+// import Client from 'vcloud-sdk-nodejs';
+import Client from '../core/index';
 import { Policy } from 'src/models';
 
-const client = new VodClient({
+const client = new Client({
   accesskey: 'xxx',
   secretkey: 'xxx',
+  version: 'xxx',
+  service: 'xxx',
+  endpoint: 'http://xxx',
 });
 const policy: Policy = {
   Statement: [
@@ -14,7 +18,5 @@ const policy: Policy = {
     },
   ],
 };
-console.log(policy);
 
-const res = client.SignSts2(10);
-console.log(res);
+console.log(client.SignSts2(policy, 10));

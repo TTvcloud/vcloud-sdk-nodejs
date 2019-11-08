@@ -165,7 +165,7 @@ class Client {
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
 
     const timeMilles = Date.now() + Math.max(60 * 1000, expire);
-    const ExpiredTime = new Date(timeMilles).toISOString().replace(/\-|\:|(\.[0-9]+)/g, '');
+    const ExpiredTime = new Date(timeMilles).toISOString().replace(/-|:|(\.[0-9]+)/g, '');
 
     const { AccessKeyId, SecretAccessKey } = sts2.CreateTempAKSK();
     const sts = { ExpiredTime, AccessKeyId, SecretAccessKey };

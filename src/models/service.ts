@@ -34,32 +34,32 @@ export type RequestOptions = Partial<{
   };
 }>;
 
-export type SecurityToken2 = {
+export interface SecurityToken2 {
   AccessKeyId: string;
   SecretAccessKey: string;
   ExpiredTime: string;
   SessionToken?: string;
-};
+}
 
-export type InnerToken = {
+export interface InnerToken {
   LTAccessKeyId: string;
   AccessKeyId: string;
   SignedSecretAccessKey: string;
   ExpiredTime: number;
   PolicyString: string;
   Signature: string;
-};
+}
 
-export type Policy = {
-  Statement: Array<Statement>;
-};
+export interface Policy {
+  Statement: Statement[];
+}
 
-export type Statement = {
+export interface Statement {
   Effect: string;
   Action: string[];
   Resource: string[];
   Condition?: string;
-};
+}
 
 export type FetchOptions = RequestOptions & {
   pathname: () => string;

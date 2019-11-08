@@ -1,7 +1,6 @@
 // import Client from '..';
 // import { Handler } from '../models/interceptor';
 
-
 // class Interceptor {
 
 //   constructor(

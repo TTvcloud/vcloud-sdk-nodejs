@@ -12,26 +12,31 @@ const client = new Client({
   endpoint: 'http://10.225.126.01',
 });
 
-client.addPreHandler({
-  resolve: function (p: PreResolve) {
-    logger.info(p.action, p.options);
-  }
-}).addPostHandler({
-  resolve: function (r) {
-    logger.info('result: ', r);
-    return r;
-  },
-  reject: function (e: Error) {
-    logger.error('reject: ', e);
-  }
-});
+client
+  .addPreHandler({
+    resolve: function(p: PreResolve) {
+      logger.info(p.action, p.options);
+    },
+  })
+  .addPostHandler({
+    resolve: function(r) {
+      logger.info('result: ', r);
+      return r;
+    },
+    reject: function(e: Error) {
+      logger.error('reject: ', e);
+    },
+  });
 
-client.request('GetKeypairs', {
-  query: {
-    'X-Account-Id': 1,
-  },
-}).then(res => {
-  console.log(res);
-}).catch(e => {
-  console.error(e);
-})
+client
+  .request('GetKeypairs', {
+    query: {
+      'X-Account-Id': 1,
+    },
+  })
+  .then(res => {
+    console.log(res);
+  })
+  .catch(e => {
+    console.error(e);
+  });

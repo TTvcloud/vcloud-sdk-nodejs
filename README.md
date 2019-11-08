@@ -88,7 +88,9 @@ const client = new VodClient({
 - expire: 过期时间(ms), 可不传，默认值 60 \* 1000
 
 ```
-const client = new VodClient({
+const Client = require("vcloud-sdk-nodejs");
+
+const client = new Client({
     accesskey: '<accessKeyId>',
     secretkey: '<accessKeySecret>',
 });

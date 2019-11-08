@@ -33,15 +33,15 @@ class VodClient extends BaseClient {
     super(merge(_defaultConfigs, config));
   }
 
-  GetPlayInfo = async (): Promise<GetPlayInfoResp> => {
+  async GetPlayInfo(): Promise<GetPlayInfoResp> {
     return this.request('GetPlayInfo', {
       version: '2019-03-15',
     } as RequestOptions);
-  };
+  }
 
-  RedirectPlay = async () => {
+  async RedirectPlay() {
     return this.request('RedirectPlay', {} as RequestOptions);
-  };
+  }
 
   GetOriginVideoPlayInfo = async (): Promise<GetOriginVideoPlayInfoResp> => {
     return this.request('GetOriginVideoPlayInfo', {} as RequestOptions);
@@ -97,12 +97,7 @@ class VodClient extends BaseClient {
 
   randWeights = () => {};
 
-  GetPosterUrl = (
-    spaceName: string,
-    uri: string,
-    fallbackWeights: { [K: string]: number },
-    opts: Array<OptionFun>,
-  ) => {};
+  GetPosterUrl = (spaceName: string, uri: string, fallbackWeights: { [K: string]: number }, opts: OptionFun[]) => {};
 }
 
 export default VodClient;

@@ -21,7 +21,7 @@ function dispatchRequest(options: FetchOptions) {
     debug('reqOptions: ', reqOptions);
 
     return fetch(url, reqOptions);
-  }
+  };
 }
 
 export { dispatchRequest };

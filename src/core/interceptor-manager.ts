@@ -1,19 +1,14 @@
-import _debug from 'debug';
 import assert from 'assert';
 import { isFunction } from 'util';
 import { PostHandler, PreHandler } from '../models/interceptor';
 // import Client from '..';
 
-
 export default class InterceptorManager {
+  private _preHandlers: PreHandler[] = [];
+  private _postHandlers: PostHandler[] = [];
 
-  private _preHandlers: Array<PreHandler> = [];
-  private _postHandlers: Array<PostHandler> = [];
-
-  constructor(
-    // private readonly client: Client
-  ) {
-  }
+  constructor() // private readonly client: Client
+  {}
 
   public checkIntercetor(...args) {
     assert(args.some(arg => isFunction(arg)), 'interceptor should have at least one function as parameter.');
@@ -46,6 +41,4 @@ export default class InterceptorManager {
       reject,
     });
   }
-
 }
-
