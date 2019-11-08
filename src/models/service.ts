@@ -34,6 +34,33 @@ export type RequestOptions = Partial<{
   };
 }>;
 
+export type SecurityToken2 = {
+  AccessKeyId: string;
+  SecretAccessKey: string;
+  ExpiredTime: string;
+  SessionToken?: string;
+};
+
+export type InnerToken = {
+  LTAccessKeyId: string;
+  AccessKeyId: string;
+  SignedSecretAccessKey: string;
+  ExpiredTime: number;
+  PolicyString: string;
+  Signature: string;
+};
+
+export type Policy = {
+  Statement: Array<Statement>;
+};
+
+export type Statement = {
+  Effect: string;
+  Action: string[];
+  Resource: string[];
+  Condition?: string;
+};
+
 export type FetchOptions = RequestOptions & {
   pathname: () => string;
   search: () => string;

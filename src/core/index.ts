@@ -1,12 +1,13 @@
 import * as AWS from '../tools/v4';
 import * as util from '../tools/util';
+import * as sts2 from '../tools/sts2';
 import _debug from 'debug';
 import assert from 'assert';
 import InterceptorManager from './interceptor-manager';
 import Logger from '../tools/logger';
 import qs from 'querystring';
 import Query from './query';
-import { ClientConfigs, FetchOptions, RequestOptions } from '../models/service';
+import { ClientConfigs, FetchOptions, RequestOptions, Policy, SecurityToken2 } from '../models/service';
 import { dispatchRequest } from './dispatch-request';
 import { formatResponse } from './format-response';
 import { PostHandler, PreHandler } from '../models/interceptor';
@@ -149,6 +150,35 @@ class Client {
     ];
 
     return new Query(chain).exec();
+  }
+
+  // SignSts2(): SecurityToken2;
+  // SignSts2(expire: number): SecurityToken2;
+  // SignSts2(inlinePolicy: Policy): SecurityToken2;
+  SignSts2(inlinePolicy?: Policy | number, expire?: number): SecurityToken2 {
+    if (!inlinePolicy) inlinePolicy = undefined;
+    if (typeof inlinePolicy === 'number') {
+      expire = inlinePolicy;
+      inlinePolicy = undefined;
+    }
+    if (!expire) expire = 0;
+    assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
+
+    const timeMilles = Date.now() + Math.max(60 * 1000, expire);
+    const ExpiredTime = new Date(timeMilles).toISOString().replace(/\-|\:|(\.[0-9]+)/g, '');
+
+    const { AccessKeyId, SecretAccessKey } = sts2.CreateTempAKSK();
+    const sts = { ExpiredTime, AccessKeyId, SecretAccessKey };
+
+    const innerToken = sts2.CreateInnerToken(this._configs, sts, inlinePolicy, timeMilles);
+    const SessionToken = 'STS2' + sts2.base64(JSON.stringify(innerToken));
+
+    return {
+      ExpiredTime,
+      SessionToken,
+      AccessKeyId,
+      SecretAccessKey,
+    };
   }
 }
 

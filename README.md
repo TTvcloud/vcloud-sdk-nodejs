@@ -79,3 +79,29 @@ const client = new VodClient({
   const res = await client.GetPlayInfo();
 }
 ```
+
+# API
+
+## SignSts2([inlinePolicy[,expire]])
+
+- inlinePolicy: 策略声明, 可不传
+- expire: 过期时间(ms), 可不传，默认值 60 \* 1000
+
+```
+const client = new VodClient({
+    accesskey: '<accessKeyId>',
+    secretkey: '<accessKeySecret>',
+});
+
+const policy: Policy = {
+  Statement: [
+    {
+      Effect: '*',
+      Action: ['*'],
+      Resource: ['*'],
+    },
+  ],
+};
+
+const res = client.SignSts2(policy, 60 * 60);
+```
