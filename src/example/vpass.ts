@@ -3,7 +3,7 @@ const Client = require('../index');
 const clientOptions = {
   service: 'vpaas',
   accesskey: '',
-  secretkey: 'GZNM/imzKCr3OVGJFCFn2Rp1PotCUw233rdT0S+/',
+  secretkey: '',
   endpoint: 'http://open.us-east-1.bytedanceapi.com',
   version: '2019-07-20',
 };
@@ -21,7 +21,7 @@ const requestOptions = {
     Payload: JSON.stringify({
       input: {
         vid: 'v0200f980000bmknrqm8qbl1kj3s8mbg',
-        access_key: 'AKLTMzM1MGI0YTg5N2Y0NDc4ZmEyOTYxMzIxZjZjMWNjNzg',
+        access_key: 'xxxx',
         src_idc: 'lf',
         dest_idc: 'maliva',
       },
@@ -29,9 +29,6 @@ const requestOptions = {
     Callback: 'multi_video_upload',
     CallbackArgs: {
       mission: 'MultiVideoUpload',
-      //   operator,
-      //   id,
-      //   params,
     },
   },
   headers: {

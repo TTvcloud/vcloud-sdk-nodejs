@@ -1,7 +1,7 @@
 import now from 'performance-now';
 import { Headers } from 'node-fetch';
 import { URLSearchParams } from 'url';
-
+import debug from 'debug';
 /**
  * 格式判断相关方法
  * @param fn
@@ -116,6 +116,10 @@ function getUs() {
   return (now() * 1000) << 0;
 }
 
+function getDebugger(name) {
+  return debug(`vcloud-sdk-${name}`);
+}
+
 export {
   isFunc,
   isUndefined,
@@ -131,4 +135,5 @@ export {
   formatQuery,
   formatBody,
   getUs,
+  getDebugger,
 };

@@ -7,9 +7,7 @@ import { ResponseFailedSchema, ResponseSuccSchema } from '../constant/Schemas';
 
 const debug = _debug('openapi-format-response');
 
-
 export function formatResponse(config: ClientConfigs) {
-
   return async (res: Response) => {
     debug('validateRes...');
 
@@ -50,5 +48,5 @@ export function formatResponse(config: ClientConfigs) {
     }
 
     return ret;
-  }
+  };
 }
