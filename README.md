@@ -28,7 +28,6 @@ const clientOptions = {
 
 const client = new Client(clientOptions);
 
-// requestOptions
 const requestOptions = {
   method: string;  // set the http method, default is GET
   version: string; // api version; default is service apiVersion
