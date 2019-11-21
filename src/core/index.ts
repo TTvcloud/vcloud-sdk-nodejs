@@ -4,7 +4,6 @@ import * as sts2 from '../tools/sts2';
 import _debug from 'debug';
 import assert from 'assert';
 import InterceptorManager from './interceptor-manager';
-import Logger from '../tools/logger';
 import qs from 'querystring';
 import Query from './query';
 import { ClientConfigs, FetchOptions, RequestOptions, Policy, SecurityToken2 } from '../models/service';
@@ -20,7 +19,6 @@ const defaultConfigs = {
   needHeaders: false,
   callCluster: 'default',
   timeout: 5000,
-  logger: Logger.createLogger(),
 };
 
 class Client {

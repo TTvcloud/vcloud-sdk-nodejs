@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
@@ -7,15 +7,15 @@ module.exports =  {
     'plugin:prettier/recommended',
   ],
   plugins: ['@typescript-eslint', 'jest'],
-  parserOptions:  {
-    ecmaVersion:  2018,
-    sourceType:  'module',
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
   },
   env: {
     browser: true,
     node: true,
     es6: true,
-    "jest/globals": true,
+    'jest/globals': true,
   },
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
@@ -24,7 +24,8 @@ module.exports =  {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/interface-name-prefix': 'warn',
     '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/camelcase': 'off'
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
   overrides: [
     {
@@ -32,7 +33,7 @@ module.exports =  {
       rules: {
         '@typescript-eslint/camelcase': 'off',
         '@typescript-eslint/no-var-requires': 'off',
-      }
-    }
-  ]
+      },
+    },
+  ],
 };

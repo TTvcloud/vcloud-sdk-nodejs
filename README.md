@@ -84,7 +84,7 @@ const client = new VodClient({
 
 ## SignSts2([inlinePolicy[,expire]])
 
-- inlinePolicy: 策略声明, 可不传
+- inlinePolicy: 策略声明, 可不传， 默认为空
 - expire: 过期时间(ms), 可不传，默认值 60 \* 1000
 
 ```
@@ -95,7 +95,7 @@ const client = new Client({
     secretkey: '<accessKeySecret>',
 });
 
-const policy: Policy = {
+const policy = {
   Statement: [
     {
       Effect: '*',
@@ -105,8 +105,28 @@ const policy: Policy = {
   ],
 };
 
-client.SignSts2();
-client.SignSts2(policy);
-client.SignSts2(60 * 60);
-client.SignSts2(policy, 60 * 60);
+client.SignSts2();  //无参数，expire将使用默认值
+
+client.SignSts2(policy); //只传递policy对象， expire将使用默认值
+
+client.SignSts2(60 * 60); //只传递expire时间
+
+client.SignSts2(policy, 60 * 60); //传递policy和expire
+
 ```
+
+方法返回值是一个对象类型， 包含了 aws 签名所需信息， 如下所示：
+
+```
+{
+  ExpiredTime: '20191121T102857Z',
+  SessionToken: 'xxx',
+  AccessKeyId: 'xxx',
+  SecretAccessKey: 'xxx'
+}
+```
+
+- ExpiredTime： sessionToken 的过期时间
+- SessionToken: aws v4 签名的 Session Token
+- AccessKeyId: aws v4 签名的 AccessKey
+- SecretAccessKey: aws v4 签名的 SecretKey

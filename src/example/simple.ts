@@ -1,8 +1,5 @@
 import Client from '../index';
-import Logger from '../tools/logger';
 import { PreResolve } from '../models/interceptor';
-
-const logger = Logger.createLogger();
 
 const client = new Client({
   accesskey: 'xxx',
@@ -15,16 +12,16 @@ const client = new Client({
 client
   .addPreHandler({
     resolve: function(p: PreResolve) {
-      logger.info(p.action, p.options);
+      console.log(p.action, p.options);
     },
   })
   .addPostHandler({
     resolve: function(r) {
-      logger.info('result: ', r);
+      console.log('result: ', r);
       return r;
     },
     reject: function(e: Error) {
-      logger.error('reject: ', e);
+      console.error('reject: ', e);
     },
   });
 

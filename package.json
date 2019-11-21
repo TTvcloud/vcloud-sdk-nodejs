@@ -2,6 +2,8 @@
   "name": "vcloud-sdk-nodejs",
   "version": "1.3.0",
   "description": "vcloud nodejs sdk",
+  "author": "chenjian.bzh@bytedance.com",
+  "license": "ISC",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
@@ -19,14 +21,12 @@
     "node-fetch": "^2.6.0",
     "query-string": "^5.1.1",
     "url": "^0.11.0",
-    "uuid": "^3.3.3",
-    "winston": "^3.2.1",
-    "winston-transport": "^4.3.0"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
-    "@commitlint/config-lerna-scopes": "^8.0.0",
+    "@commitlint/prompt-cli": "^8.2.0",
     "@types/deepmerge": "^2.2.0",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.5",
@@ -34,6 +34,8 @@
     "@types/query-string": "^6.3.0",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.28",
     "debug": "^4.1.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
@@ -42,8 +44,10 @@
     "husky": "^2.4.0",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
-    "lerna": "^3.14.1",
+    "lint-staged": "^9.4.3",
     "prettier": "^1.17.1",
+    "replace": "^1.1.1",
+    "standard-version": "^7.0.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
   },
@@ -52,22 +56,36 @@
     "build:watch": "rm -rf lib && tsc -w",
     "lint": "eslint . --ext ts,js --fix",
     "lint-check": "eslint . --ext ts,js",
-    "patch": "npm run build && npm version patch && npm publish",
-    "minor": "npm run build && npm version minor && npm publish",
-    "major": "npm run build && npm version major && npm publish",
-    "test": "jest --config ./jest.config.json --coverage --env=node"
+    "test": "jest --config ./jest.config.json --coverage --env=node",
+    "commit": "commit",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog-all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "patch": "./scripts/release.sh -r patch",
+    "minor": "./scripts/release.sh -r minor",
+    "major": "./scripts/release.sh -r major"
   },
   "keywords": [
     "openapi",
     "node",
     "sdk"
   ],
-  "author": "vcloud-fe",
-  "license": "ISC",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10"
   },
   "jest": {
     "preset": "./jest.config.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
