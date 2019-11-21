@@ -33,17 +33,11 @@ class Client {
   }
 
   initConfigs(configs: ClientConfigs) {
-    const endpoint = configs.endpoint;
+    const endpoint = configs.endpoint || '';
 
     assert(configs, 'must provide client config');
     assert(configs.accesskey, 'must provide accesskey');
     assert(configs.secretkey, 'must provide secretKey');
-    assert(configs.version, 'must provide api version');
-    assert(endpoint, 'must provide endpoint');
-    assert(
-      endpoint.startsWith('http://') || endpoint.startsWith('https://'),
-      'endpoint only support http or https protocol',
-    );
 
     return {
       defaultConfigs,
@@ -101,13 +95,25 @@ class Client {
       ...util.formatHeaders(options.headers),
     };
 
+    //校验version、endpoint
+    const version = options.version || this._configs.version;
+    const endpoint = this._configs.endpoint;
+    const service = this._configs.service;
+    assert(version, 'must provide api version');
+    assert(endpoint, 'must provide endpoint');
+    assert(service, 'must provide service');
+    assert(
+      endpoint.startsWith('http://') || endpoint.startsWith('https://'),
+      'endpoint only support http or https protocol',
+    );
+
     const query = {
       Action: util.firstToUpperCase(action),
-      Version: options.version || this._configs.version,
+      Version: version,
       ...options.query,
     };
 
-    const url = `${this._configs.endpoint}?${qs.stringify(query)}`;
+    const url = `${endpoint}?${qs.stringify(query)}`;
     const method = (options.method || 'GET').toUpperCase();
     const body = util.formatBody(options);
 
@@ -130,7 +136,7 @@ class Client {
 
     debug('fetchOptions: %o', fetchOptions);
 
-    const signer = new AWS.AWSSignersV4(fetchOptions, this._configs.service, {});
+    const signer = new AWS.AWSSignersV4(fetchOptions, service, {});
 
     debug('this._configs', this._configs);
     signer.addAuthorization(
