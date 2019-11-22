@@ -60,9 +60,9 @@
     "commit": "commit",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "changelog-all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "patch": "./scripts/release.sh -r patch",
-    "minor": "./scripts/release.sh -r minor",
-    "major": "./scripts/release.sh -r major"
+    "patch": "release.sh -r patch",
+    "minor": "release.sh -r minor",
+    "major": "release.sh -r major"
   },
   "keywords": [
     "openapi",
