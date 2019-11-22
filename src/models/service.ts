@@ -5,9 +5,9 @@ import { RequestInit } from 'node-fetch';
 export interface ClientConfigs {
   accesskey: string;
   secretkey: string;
-  endpoint: string;
-  version: string;
-  service: string;
+  endpoint?: string;
+  version?: string;
+  service?: string;
   region?: string;
   headers?: IncomingHttpHeaders;
 

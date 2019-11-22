@@ -100,10 +100,12 @@ class Client {
     assert(version, 'must provide api version');
     assert(endpoint, 'must provide endpoint');
     assert(service, 'must provide service');
-    assert(
-      endpoint.startsWith('http://') || endpoint.startsWith('https://'),
-      'endpoint only support http or https protocol',
-    );
+    if (endpoint) {
+      assert(
+        endpoint.startsWith('http://') || endpoint.startsWith('https://'),
+        'endpoint only support http or https protocol',
+      );
+    }
 
     const query = {
       Action: util.firstToUpperCase(action),
@@ -156,9 +158,12 @@ class Client {
     return new Query(chain).exec();
   }
 
-  // SignSts2(): SecurityToken2;
-  // SignSts2(expire: number): SecurityToken2;
-  // SignSts2(inlinePolicy: Policy): SecurityToken2;
+  /**
+   * 端上调用OpenApi之前获取临时aksk的方法
+   * @param  {Policy|number} inlinePolicy? 权限策略
+   * @param  {number} expire? 过期时间
+   * @returns SecurityToken2 包含临时ak/sk的对象
+   */
   SignSts2(inlinePolicy?: Policy | number, expire?: number): SecurityToken2 {
     if (!inlinePolicy) inlinePolicy = undefined;
     if (typeof inlinePolicy === 'number') {

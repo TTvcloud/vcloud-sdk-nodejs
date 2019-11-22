@@ -5,9 +5,6 @@ import { Policy } from 'src/models';
 const client = new Client({
   accesskey: 'xxx',
   secretkey: 'xxx',
-  version: 'xxx',
-  service: 'xxx',
-  endpoint: 'http://xxx',
 });
 const policy: Policy = {
   Statement: [
