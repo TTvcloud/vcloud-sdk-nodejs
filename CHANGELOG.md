@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.1...v1.3.2) (2019-11-22)
+
+
+### Bug Fixes
+
+* 修改ClientConfigs类型的属性定义 ([0673d76](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/0673d76dd831cc7cc77786e5ffd637181d454938))
+
 ### [1.3.1](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.0...v1.3.1) (2019-11-21)
 
 ### Features
