@@ -24,7 +24,7 @@ const defaultConfigs = {
 const defaultPolicy = {
   Statement: [
     {
-      Effect: '*',
+      Effect: 'Allow',
       Action: ['*'],
       Resource: ['*'],
     },

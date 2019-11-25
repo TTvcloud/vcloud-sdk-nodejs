@@ -9,8 +9,8 @@ const client = new Client({
 const policy: Policy = {
   Statement: [
     {
-      Effect: '*',
-      Action: ['GetInfo'],
+      Effect: 'Allow',
+      Action: ['*'],
       Resource: ['*'],
     },
   ],
