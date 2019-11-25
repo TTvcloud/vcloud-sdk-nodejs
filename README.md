@@ -83,7 +83,7 @@ const client = new VodClient({
 
 ## SignSts2([inlinePolicy[,expire]])
 
-- inlinePolicy: 策略声明, 可不传， 默认为允许所有Action和Resource的操作
+- inlinePolicy: 策略声明, 可不传， 默认为允许所有 Action 和 Resource 的操作
 - expire: 过期时间(ms), 可不传，默认值 60 \* 1000
 
 ```
@@ -108,9 +108,9 @@ client.SignSts2();  //无参数，expire将使用默认值
 
 client.SignSts2(policy); //只传递policy对象， expire将使用默认值
 
-client.SignSts2(60 * 60); //只传递expire时间
+client.SignSts2(60 * 1000); //只传递expire时间
 
-client.SignSts2(policy, 60 * 60); //传递policy和expire
+client.SignSts2(policy, 60 * 1000); //传递policy和expire
 
 ```
 
