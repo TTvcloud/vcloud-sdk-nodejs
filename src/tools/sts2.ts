@@ -7,7 +7,7 @@ const LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const debug = getDebugger('sts2');
 
 function base64(str: string): string {
-  return new Buffer(str).toString('base64');
+  return Buffer.from(str).toString('base64');
 }
 
 function randStringRunes(n: number): string {
@@ -58,7 +58,7 @@ function AesEncryptCBCWithBase64(data, key) {
   let encrypted = cipher.update(finaldata);
   let final = cipher.final();
   encrypted = Buffer.concat([encrypted, final], encrypted.length + final.length);
-  return new Buffer(encrypted).toString('base64');
+  return Buffer.from(encrypted).toString('base64');
 }
 
 function GenerateSecretKey(): string {

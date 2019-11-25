@@ -21,6 +21,16 @@ const defaultConfigs = {
   timeout: 5000,
 };
 
+const defaultPolicy = {
+  Statement: [
+    {
+      Effect: '*',
+      Action: ['*'],
+      Resource: ['*'],
+    },
+  ],
+};
+
 class Client {
   private readonly _configs: ClientConfigs;
   private _manager: InterceptorManager;
@@ -165,10 +175,10 @@ class Client {
    * @returns SecurityToken2 包含临时ak/sk的对象
    */
   SignSts2(inlinePolicy?: Policy | number, expire?: number): SecurityToken2 {
-    if (!inlinePolicy) inlinePolicy = undefined;
+    if (!inlinePolicy) inlinePolicy = defaultPolicy;
     if (typeof inlinePolicy === 'number') {
       expire = inlinePolicy;
-      inlinePolicy = undefined;
+      inlinePolicy = defaultPolicy;
     }
     if (!expire) expire = 0;
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
