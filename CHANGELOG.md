@@ -1,22 +1,16 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-### [1.3.4](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.3...v1.3.4) (2019-11-25)
-
 ### [1.3.3](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.2...v1.3.3) (2019-11-25)
-
 
 ### Features
 
-* 设置默认policy的Action,Resource为* ([e7c9245](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/e7c9245a68c0490f4f7fab182496b7dcaa5bff23))
+- 设置默认 policy 的 Action,Resource 为\* ([e7c9245](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/e7c9245a68c0490f4f7fab182496b7dcaa5bff23))
 
 ### [1.3.2](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.1...v1.3.2) (2019-11-22)
 
-
 ### Bug Fixes
 
-* 修改ClientConfigs类型的属性定义 ([0673d76](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/0673d76dd831cc7cc77786e5ffd637181d454938))
+- 修改 ClientConfigs 类型的属性定义 ([0673d76](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/0673d76dd831cc7cc77786e5ffd637181d454938))
 
 ### [1.3.1](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.0...v1.3.1) (2019-11-21)
 
