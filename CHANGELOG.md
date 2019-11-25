@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.2...v1.3.3) (2019-11-25)
+
+
+### Features
+
+* 设置默认policy的Action,Resource为* ([e7c9245](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/e7c9245a68c0490f4f7fab182496b7dcaa5bff23))
+
 ### [1.3.2](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.1...v1.3.2) (2019-11-22)
 
 
