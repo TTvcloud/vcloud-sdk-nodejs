@@ -83,7 +83,7 @@ const client = new VodClient({
 
 ## SignSts2([inlinePolicy[,expire]])
 
-- inlinePolicy: 策略声明, 可不传， 默认为允许所有 Action 和 Resource 的操作
+- inlinePolicy <[Policy](https://github.com/TTvcloud/vcloud-sdk-nodejs/blob/master/src/models/service.ts)> 策略声明, 可不传 ; 默认允许对所有资源的操作
 - expire: 过期时间(ms), 可不传，默认值 60 \* 1000
 
 ```
@@ -94,10 +94,11 @@ const client = new Client({
     secretkey: '<accessKeySecret>',
 });
 
+//默认的policy
 const policy = {
   Statement: [
     {
-      Effect: '*',
+      Effect: 'Allow',
       Action: ['*'],
       Resource: ['*'],
     },
