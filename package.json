@@ -70,7 +70,7 @@
     "sdk"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=8"
   },
   "jest": {
     "preset": "./jest.config.json"

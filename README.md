@@ -84,7 +84,7 @@ const client = new VodClient({
 ## SignSts2([inlinePolicy[,expire]])
 
 - inlinePolicy <[Policy](https://github.com/TTvcloud/vcloud-sdk-nodejs/blob/master/src/models/service.ts)> 策略声明, 可不传 ; 默认允许对所有资源的操作
-- expire: 过期时间(ms), 可不传，默认值 60 \* 1000
+- expire: 过期时间(ms), 可不传，[默认 10 分钟 ( 即 600 \* 1000 )]()
 
 ```
 const Client = require("vcloud-sdk-nodejs");
@@ -109,9 +109,9 @@ client.SignSts2();  //无参数，expire将使用默认值
 
 client.SignSts2(policy); //只传递policy对象， expire将使用默认值
 
-client.SignSts2(60 * 1000); //只传递expire时间
+client.SignSts2(600 * 1000); //只传递expire时间
 
-client.SignSts2(policy, 60 * 1000); //传递policy和expire
+client.SignSts2(policy, 600 * 1000); //传递policy和expire
 
 ```
 

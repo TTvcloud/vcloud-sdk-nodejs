@@ -31,6 +31,8 @@ const defaultPolicy = {
   ],
 };
 
+const defaultExpire = 600 * 1000;
+
 class Client {
   private readonly _configs: ClientConfigs;
   private _manager: InterceptorManager;
@@ -180,7 +182,7 @@ class Client {
       expire = inlinePolicy;
       inlinePolicy = defaultPolicy;
     }
-    if (!expire) expire = 0;
+    if (!expire) expire = defaultExpire;
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
 
     const timeMilles = Date.now() + Math.max(60 * 1000, expire);
