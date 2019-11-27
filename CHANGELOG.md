@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.7](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.6...v1.3.7) (2019-11-27)
+
+
+### Features
+
+* 修改sts2签名的默认过期时间为10分钟 ([348cba8](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/348cba872d1d38da1239218d71e02140cc75f1e5))
+
 ### [1.3.6](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.5...v1.3.6) (2019-11-26)
 
 ### [1.3.5](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.4...v1.3.5) (2019-11-25)
