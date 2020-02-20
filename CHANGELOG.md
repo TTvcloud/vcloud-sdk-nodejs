@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.8](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.7...v1.3.8) (2020-02-20)
+
+
+### Bug Fixes
+
+* 修复sts2签名过期时间不准确的问题 ([e9ffab9](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/e9ffab9a8d9c32d8bc51b9717ca68c7d6602f18e))
+
 ### [1.3.7](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.6...v1.3.7) (2019-11-27)
 
 
