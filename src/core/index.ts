@@ -185,13 +185,14 @@ class Client {
     if (!expire) expire = defaultExpire;
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
 
-    const timeMilles = parseInt(((Date.now() + expire) / 1000).toFixed(0));
-    const ExpiredTime = new Date(timeMilles).toISOString().replace(/-|:|(\.[0-9]+)/g, '');
+    const timeInMilles = Date.now() + expire;
+    const timeInSeconds = parseInt((timeInMilles / 1000).toFixed(0));
+    const ExpiredTime = new Date(timeInMilles).toLocaleString();
 
     const { AccessKeyId, SecretAccessKey } = sts2.CreateTempAKSK();
-    const sts = { ExpiredTime, AccessKeyId, SecretAccessKey };
+    const sts = { AccessKeyId, SecretAccessKey };
 
-    const innerToken = sts2.CreateInnerToken(this._configs, sts, inlinePolicy, timeMilles);
+    const innerToken = sts2.CreateInnerToken(this._configs, sts, inlinePolicy, timeInSeconds);
     const SessionToken = 'STS2' + sts2.base64(JSON.stringify(innerToken));
 
     return {

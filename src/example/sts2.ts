@@ -16,4 +16,4 @@ const policy: Policy = {
   ]
 };
 
-console.log(client.SignSts2(policy, 60 * 1000));
+console.log(client.SignSts2(policy, 60 * 1000 * 3));
