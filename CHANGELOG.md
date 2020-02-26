@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.9](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.8...v1.3.9) (2020-02-26)
+
+
+### Bug Fixes
+
+* expiredTime格式错误的bugfix ([10b44c2](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/10b44c2a09365ea3021b61f7c30f7adbe97e3d82))
+
 ### [1.3.8](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.7...v1.3.8) (2020-02-20)
 
 
