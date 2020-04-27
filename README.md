@@ -119,7 +119,7 @@ client.SignSts2(policy, 600 * 1000); //传递policy和expire
 
 ```
 {
-  ExpiredTime: '20191121T102857Z',
+  ExpiredTime: '4/27/2020, 7:20:54 AM',
   SessionToken: 'xxx',
   AccessKeyId: 'xxx',
   SecretAccessKey: 'xxx'
