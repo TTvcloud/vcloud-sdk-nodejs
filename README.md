@@ -22,8 +22,8 @@ const clientOptions = {
   service: '<serviceName>',
   accesskey: '<accessKeyId>',
   secretkey: '<accessKeySecret>',
-  endpoint: '<endpoint>',
   version: '<apiVersion>'
+  endpoint?: '<endpoint>', //默认是 https://open.bytedanceapi.com
 }
 
 const client = new Client(clientOptions);
@@ -31,13 +31,13 @@ const client = new Client(clientOptions);
 const requestOptions = {
   method: string;  // set the http method, default is GET
   version: string; // api version; default is service apiVersion
-  logId: string; // requestId
-  lockTime: boolean; // aws签名时是否锁定时间戳, 默认是fase
-  body: any; //请求体，当method为get、options等无body的请求方法时设置无效
-  query: {  //url请求参数
+  logId?: string; // requestId
+  lockTime?: boolean; // aws签名时是否锁定时间戳, 默认是fase
+  body?: any; //请求体，当method为get、options等无body的请求方法时设置无效
+  query?: {  //url请求参数
     [key: string]: any;
   };
-  headers: {  //自定义请求头
+  headers?: {  //自定义请求头
     [key: string]: string;
   };
 };

@@ -43,7 +43,7 @@ class Client {
   }
 
   initConfigs(configs: ClientConfigs) {
-    const endpoint = configs.endpoint || '';
+    const endpoint = configs.endpoint || 'https://open.bytedanceapi.com';
 
     assert(configs, 'must provide client config');
     assert(configs.accesskey, 'must provide accesskey');
