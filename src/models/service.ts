@@ -37,6 +37,7 @@ export type RequestOptions = Partial<{
 export interface SecurityToken2 {
   AccessKeyId: string;
   SecretAccessKey: string;
+  CurrentTime?: string;
   ExpiredTime?: string;
   SessionToken?: string;
 }
