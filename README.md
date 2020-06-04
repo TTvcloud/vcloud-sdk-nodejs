@@ -84,7 +84,7 @@ const client = new VodClient({
 ## SignSts2([inlinePolicy[,expire]])
 
 - inlinePolicy <[Policy](https://github.com/TTvcloud/vcloud-sdk-nodejs/blob/master/src/models/service.ts)> 策略声明, 可不传 ; 默认允许对所有资源的操作
-- expire: 过期时间(ms), 可不传，[默认 10 分钟 ( 即 600 \* 1000 )]()
+- expire: 过期时间(ms), 可不传，默认1小时
 
 ```
 const Client = require("vcloud-sdk-nodejs");
@@ -119,13 +119,15 @@ client.SignSts2(policy, 600 * 1000); //传递policy和expire
 
 ```
 {
-  ExpiredTime: '20191121T102857Z',
+  CurrentTime: '20191121T102857Z',
+  ExpiredTime: '20191121T112857Z',
   SessionToken: 'xxx',
   AccessKeyId: 'xxx',
   SecretAccessKey: 'xxx'
 }
 ```
 
+- CurrentTime： sessionToken 起始时间
 - ExpiredTime： sessionToken 的过期时间
 - SessionToken: aws v4 签名的 Session Token
 - AccessKeyId: aws v4 签名的 AccessKey
