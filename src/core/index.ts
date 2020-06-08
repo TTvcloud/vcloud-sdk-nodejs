@@ -31,7 +31,7 @@ const defaultPolicy = {
   ],
 };
 
-const defaultExpire = 600 * 1000;
+const defaultExpire = 60 * 60 * 1000;
 
 class Client {
   private readonly _configs: ClientConfigs;
@@ -185,6 +185,8 @@ class Client {
     if (!expire) expire = defaultExpire;
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
 
+    const nowTime = Date.now();
+    const CurrentTime = new Date(nowTime).toLocaleString();
     const timeInMilles = Date.now() + expire;
     const timeInSeconds = parseInt((timeInMilles / 1000).toFixed(0));
     const ExpiredTime = new Date(timeInMilles).toLocaleString();
@@ -196,6 +198,7 @@ class Client {
     const SessionToken = 'STS2' + sts2.base64(JSON.stringify(innerToken));
 
     return {
+      CurrentTime,
       ExpiredTime,
       SessionToken,
       AccessKeyId,
