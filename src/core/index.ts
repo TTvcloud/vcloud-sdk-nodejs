@@ -185,11 +185,11 @@ class Client {
     if (!expire) expire = defaultExpire;
     assert(typeof expire === 'number', 'SignSts2 second parameter must be a number');
 
-    const nowTime = Date.now();
-    const CurrentTime = new Date(nowTime).toLocaleString();
-    const timeInMilles = Date.now() + expire;
+    const now = Date.now();
+    const CurrentTime = new Date(now).toISOString();
+    const timeInMilles = now + expire;
     const timeInSeconds = parseInt((timeInMilles / 1000).toFixed(0));
-    const ExpiredTime = new Date(timeInMilles).toLocaleString();
+    const ExpiredTime = new Date(timeInMilles).toISOString();
 
     const { AccessKeyId, SecretAccessKey } = sts2.CreateTempAKSK();
     const sts = { AccessKeyId, SecretAccessKey };
