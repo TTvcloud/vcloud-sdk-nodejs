@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.11](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.10...v1.3.11) (2020-06-08)
+
+
+### Features
+
+* 修改输出时间格式 ([824377a](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/824377af2033099444929bdd879f5e09d3b59638))
+
+
+### Bug Fixes
+
+* add the CurrentTime field to the SecurityToken2 structure and change the expiration time to 1 hour. ([41f7876](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/41f7876966ddc4fd0299efdd082d5702994821e9))
+
 ### [1.3.10](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.9...v1.3.10) (2020-06-02)
 
 
