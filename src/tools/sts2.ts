@@ -30,7 +30,7 @@ function toBuffer(x: any) {
 }
 
 /**padding填充0 */
-function PKCS5Padding(data, blockSize: number) {
+function ZeroPadding(data, blockSize: number) {
   const padding = blockSize - (data.length % blockSize);
   if (padding === 0) {
     return data;
@@ -53,7 +53,7 @@ function AesEncryptCBCWithBase64(data, key) {
   const blocksize = key.length;
   const iv = key;
   const cipher = crypto.createCipheriv(`aes-128-cbc`, key, iv);
-  const finaldata = PKCS5Padding(data, blocksize);
+  const finaldata = ZeroPadding(data, blocksize);
 
   let encrypted = cipher.update(finaldata);
   let final = cipher.final();
@@ -136,4 +136,4 @@ function CreateInnerToken(
   };
 }
 
-export { AesEncryptCBCWithBase64, CreateInnerToken, CreateTempAKSK, base64, PKCS5Padding, hash, formatBuffer };
+export { AesEncryptCBCWithBase64, CreateInnerToken, CreateTempAKSK, base64, ZeroPadding, hash, formatBuffer };
