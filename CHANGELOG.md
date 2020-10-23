@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.12](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.11...v1.3.12) (2020-10-23)
+
+
+### Features
+
+* add imagex apis ([15284bc](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/15284bc4305ded6fde19a797485f56252f2c97e1))
+* 修改PKCS5Padding方法名称 ([659a3b6](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/659a3b69d3c300ad90badd21c149f5d89a707792))
+
 ### [1.3.11](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.10...v1.3.11) (2020-06-08)
 
 
