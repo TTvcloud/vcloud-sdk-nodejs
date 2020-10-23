@@ -2,7 +2,7 @@
 
 # vcloud-sdk-nodejs
 
-封装了签名、发送请求等核心业务逻辑 ; 同时内置了 Vod 标准 API
+封装了签名、发送请求等核心业务逻辑 ; 同时内置了 Vod和ImageX 标准 API
 
 ### 安装
 

@@ -14,7 +14,7 @@ export interface ErrorObj {
 
 export interface CommonResponse {
   ResponseMetadata: ResponseMetadata;
-  Resultl: any;
+  Result: any;
 }
 
 export interface BaseResp {
