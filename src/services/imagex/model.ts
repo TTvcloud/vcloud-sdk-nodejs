@@ -76,3 +76,35 @@ interface DeleteImageUploadFilesResult {
   ServiceId: string;
   DeletedFiles: string[];
 }
+
+export type UploadImagesResp = CommonResponse & {
+  Result: UploadImagesResult;
+};
+
+interface UploadImagesResult {
+  RequestId: string;
+  Results: UploadImagesUri[];
+  PluginResult: UploadImagesPluginResult[];
+}
+
+interface UploadImagesUri {
+  Uri: string;
+}
+
+interface UploadImagesPluginResult {
+  FileName: string;
+  ImageUri: string;
+  ImageWidth: number;
+  ImageHeight: number;
+  ImageMd5: string;
+  ImageFormat: string;
+  ImageSize: number;
+  FrameCnt: number;
+  Duration: number;
+}
+
+export interface UploadImagesOption {
+  serviceId: string;
+  files: string[] | NodeJS.ReadableStream[] | ArrayBuffer[] | ArrayBufferView[];
+  fileKeys?: string[];
+}
