@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.13](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.12...v1.3.13) (2021-01-20)
+
+
+### Features
+
+* add image upload ([277deee](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/277deeebc1ee91acee84cf6c7a717412a406f6de))
+* update edit apis ([2dfa98b](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/2dfa98b189ea589efae9c84d42e920fd2903d317))
+
+
+### Bug Fixes
+
+* fix imagex type error ([5c15b91](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/5c15b912f3db2db96e3a78b535455cdfc8266b31))
+
 ### [1.3.12](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.11...v1.3.12) (2020-10-23)
 
 
