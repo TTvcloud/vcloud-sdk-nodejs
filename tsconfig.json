@@ -23,5 +23,5 @@
     "resolveJsonModule": true,
     "types": ["jest", "node"]
   },
-  "exclude": ["node_modules", "public", "build", "scripts", "webpack", "jest", "test/"]
+  "exclude": ["node_modules", "public", "build", "scripts", "webpack", "jest", "test/", "src/example"]
 }

@@ -24,7 +24,7 @@ export type CommitImageUploadResp = CommonResponse & {
   Result: CommitImageUploadResult;
 };
 
-interface CommitImageUploadResult {
+export interface CommitImageUploadResult {
   RequestId: string;
   Results: UploadResult[];
   PluginResult: ImageInfo[];

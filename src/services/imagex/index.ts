@@ -6,7 +6,7 @@ import {
   UpdateImageUploadFilesResp,
   PreviewImageUploadFileResp,
   DeleteImageUploadFilesResp,
-  UploadImagesResp,
+  CommitImageUploadResult,
   UploadImagesOption,
 } from './model';
 import { ClientConfigs, RequestOptions } from '../../models/service';
@@ -53,7 +53,7 @@ class ImagexClient extends BaseClient {
     return this.request('DeleteImageUploadFiles', option);
   };
 
-  UploadImages = async (option: UploadImagesOption): Promise<UploadImagesResp> => {
+  UploadImages = async (option: UploadImagesOption): Promise<CommitImageUploadResult> => {
     const query = {
       ServiceId: option.serviceId,
       UploadNum: option.files.length,
