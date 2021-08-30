@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.14](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.13...v1.3.14) (2021-08-30)
+
+
+### Bug Fixes
+
+* 修复imagex初始参数类型 ([06bb71f](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/06bb71f260311ecbbe93ffcb25a8749c91fd6950))
+
 ### [1.3.13](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.12...v1.3.13) (2021-01-20)
 
 

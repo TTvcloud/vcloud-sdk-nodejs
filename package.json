@@ -1,6 +1,6 @@
 {
   "name": "vcloud-sdk-nodejs",
-  "version": "1.3.13",
+  "version": "1.3.14",
   "description": "vcloud nodejs sdk",
   "author": "chenjian.bzh@bytedance.com",
   "license": "ISC",
