@@ -14,7 +14,7 @@ import { REGION } from '../../constant';
 import fetch, { Response } from 'node-fetch';
 import fs from 'fs';
 
-type ImagexClientConfig = Pick<ClientConfigs, 'accesskey' | 'secretkey'>;
+type ImagexClientConfig = Pick<ClientConfigs, 'accesskey' | 'secretkey' | 'endpoint'>;
 
 const _defaultConfigs: Partial<ClientConfigs> = {
   service: 'imagex',
