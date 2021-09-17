@@ -40,6 +40,9 @@ interface ImageInfo {
   ImageWidth: number;
   ImageHeight: number;
   ImageMd5: string;
+  ImageFormat: string;
+  ImageSize: number;
+  FrameCnt: number;
 }
 
 export type UpdateImageUploadFilesResp = CommonResponse & {

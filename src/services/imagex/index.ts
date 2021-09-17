@@ -14,8 +14,6 @@ import { REGION } from '../../constant';
 import fetch, { Response } from 'node-fetch';
 import fs from 'fs';
 
-type ImagexClientConfig = Pick<ClientConfigs, 'accesskey' | 'secretkey' | 'endpoint'>;
-
 const _defaultConfigs: Partial<ClientConfigs> = {
   service: 'imagex',
   region: REGION.CnNorth1,
@@ -29,7 +27,7 @@ const _defaultConfigs: Partial<ClientConfigs> = {
 };
 
 class ImagexClient extends BaseClient {
-  constructor(config: ImagexClientConfig) {
+  constructor(config: ClientConfigs) {
     super(merge(_defaultConfigs, config));
   }
 
