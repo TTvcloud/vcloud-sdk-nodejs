@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.15](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.14...v1.3.15) (2021-09-17)
+
+
+### Bug Fixes
+
+* 补充类型定义 ([202484c](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/202484c9a33bfda0b3f683bd94ddce55fca023d3))
+
 ### [1.3.14](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.13...v1.3.14) (2021-08-30)
 
 
