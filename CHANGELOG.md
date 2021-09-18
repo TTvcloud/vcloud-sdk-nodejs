@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.16](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.15...v1.3.16) (2021-09-18)
+
+
+### Features
+
+* support logid and default timeout to 10s ([f252ba1](https://github.com/TTvcloud/vcloud-sdk-nodejs/commit/f252ba1bc2aac58c9211bd0b5179b7d5099d35de))
+
 ### [1.3.15](https://github.com/TTvcloud/vcloud-sdk-nodejs/compare/v1.3.14...v1.3.15) (2021-09-17)
 
 
