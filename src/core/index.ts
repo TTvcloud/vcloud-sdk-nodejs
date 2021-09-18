@@ -18,7 +18,7 @@ const defaultConfigs = {
   needMetaData: false,
   needHeaders: false,
   callCluster: 'default',
-  timeout: 5000,
+  timeout: 10000,
 };
 
 const defaultPolicy = {

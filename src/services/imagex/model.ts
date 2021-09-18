@@ -110,4 +110,5 @@ export interface UploadImagesOption {
   serviceId: string;
   files: string[] | NodeJS.ReadableStream[] | ArrayBuffer[] | ArrayBufferView[];
   fileKeys?: string[];
+  logId?: string;
 }
