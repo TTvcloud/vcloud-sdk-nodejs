@@ -62,6 +62,7 @@ class ImagexClient extends BaseClient {
 
     const applyRes = await this.ApplyImageUpload({
       query,
+      logId: option.logId,
     });
     const result = applyRes.Result;
     const reqId = result['RequestId'];
@@ -91,6 +92,7 @@ class ImagexClient extends BaseClient {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
+      logId: option.logId,
     });
     return commitRes['Result'];
   };
