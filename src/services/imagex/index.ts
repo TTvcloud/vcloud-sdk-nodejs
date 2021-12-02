@@ -111,7 +111,7 @@ class ImagexClient extends BaseClient {
         file = fs.createReadStream(file as string);
       }
       promiseArray.push(
-        fetch(`http://${uploadHost}/${oid}`, {
+        fetch(`https://${uploadHost}/${oid}`, {
           method: 'post',
           headers: {
             'Content-CRC32': 'Ignore',
