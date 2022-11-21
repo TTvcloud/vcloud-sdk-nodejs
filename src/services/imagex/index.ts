@@ -84,11 +84,13 @@ class ImagexClient extends BaseClient {
 
     const commitQuery = {
       ServiceId: option.serviceId,
-      SessionKey: sessionKey,
     };
     const commitRes = await this.CommitImageUpload({
       query: commitQuery,
       method: 'post',
+      body: {
+        SessionKey: sessionKey,
+      },
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
