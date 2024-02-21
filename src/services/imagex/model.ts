@@ -32,6 +32,7 @@ export interface CommitImageUploadResult {
 
 interface UploadResult {
   Uri: string;
+  UriStatus: number;
 }
 
 interface ImageInfo {
