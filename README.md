@@ -81,9 +81,8 @@ const client = new VodClient({
 
 # API
 
-## SignSts2([inlinePolicy[,expire]])
+## SignUploadSts2([expire])
 
-- inlinePolicy <[Policy](https://github.com/TTvcloud/vcloud-sdk-nodejs/blob/master/src/models/service.ts)> 策略声明, 可不传 ; 默认允许对所有资源的操作
 - expire: 过期时间(ms), 可不传，默认1小时
 
 ```
@@ -94,25 +93,9 @@ const client = new Client({
     secretkey: '<accessKeySecret>',
 });
 
-//默认的policy
-const policy = {
-  Statement: [
-    {
-      Effect: 'Allow',
-      Action: ['*'],
-      Resource: ['*'],
-    },
-  ],
-};
+client.SignUploadSts2();  //无参数，expire将使用默认值
 
-client.SignSts2();  //无参数，expire将使用默认值
-
-client.SignSts2(policy); //只传递policy对象， expire将使用默认值
-
-client.SignSts2(600 * 1000); //只传递expire时间
-
-client.SignSts2(policy, 600 * 1000); //传递policy和expire
-
+client.SignUploadSts2(600 * 1000); //只传递expire时间
 ```
 
 方法返回值是一个对象类型， 包含了 aws 签名所需信息， 如下所示：
