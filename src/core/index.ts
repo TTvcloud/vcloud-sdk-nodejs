@@ -205,6 +205,52 @@ class Client {
       SecretAccessKey,
     };
   }
+  /**
+   * 生成点播/图片上传相关临时 aksk 的方法
+   * @param  {number} expire? 过期时间
+   * @returns SecurityToken2 包含上传相关临时ak/sk的对象
+   */
+  SignUploadSts2(expire?: number): SecurityToken2 {
+    const uploadPolicy = {
+      Statement: [
+        {
+          Effect: 'Allow',
+          Action: [
+            'vod:ApplyUpload',
+            'vod:ApplyUploadInner',
+            'vod:CommitUpload',
+            'vod:CommitUploadInner',
+            'vod:GetUploadCandidates',
+            'imagex:ApplyImageUpload',
+            'imagex:CommitImageUpload',
+          ],
+          Resource: ['*'],
+        },
+      ],
+    };
+    if (!expire) expire = defaultExpire;
+    assert(typeof expire === 'number', 'SignUploadSts2 parameter must be a number');
+
+    const now = Date.now();
+    const CurrentTime = new Date(now).toISOString();
+    const timeInMilles = now + expire;
+    const timeInSeconds = parseInt((timeInMilles / 1000).toFixed(0));
+    const ExpiredTime = new Date(timeInMilles).toISOString();
+
+    const { AccessKeyId, SecretAccessKey } = sts2.CreateTempAKSK();
+    const sts = { AccessKeyId, SecretAccessKey };
+
+    const innerToken = sts2.CreateInnerToken(this._configs, sts, uploadPolicy, timeInSeconds);
+    const SessionToken = 'STS2' + sts2.base64(JSON.stringify(innerToken));
+
+    return {
+      CurrentTime,
+      ExpiredTime,
+      SessionToken,
+      AccessKeyId,
+      SecretAccessKey,
+    };
+  }
 }
 
 export default Client;
