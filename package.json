@@ -19,7 +19,7 @@
     "aws-sdk": "^2.297.0",
     "debug": "^4.1.1",
     "deepmerge": "^2.1.1",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.7",
     "performance-now": "^2.1.0",
     "query-string": "^5.1.1",
     "url": "^0.11.0",
