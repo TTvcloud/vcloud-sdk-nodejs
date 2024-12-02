@@ -7,7 +7,6 @@ const debug = _debug('openapi-request');
 function dispatchRequest(options: FetchOptions) {
   return () => {
     const { method, url, headers, body, logId = '', timeout } = options;
-
     const reqOptions: RequestInit = {
       body: method === 'GET' || method === 'HEAD' ? undefined : body,
       method,

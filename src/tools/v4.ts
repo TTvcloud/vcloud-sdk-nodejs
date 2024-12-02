@@ -1,4 +1,5 @@
-import AWS from 'aws-sdk/global';
+// import AWS from 'aws-sdk/global';
+import AWSSignersV4 from '@byted/aws-signers-v4';
 
 const uriEscape = (str: string) => {
   try {
@@ -39,6 +40,6 @@ const queryParamsToString = (params: { [key: string]: any }) =>
     .filter(v => v)
     .join('&');
 
-const AWSSignersV4 = (AWS as any).Signers.V4;
+// const AWSSignersV4 = (AWS as any).Signers.V4;
 
 export { queryParamsToString, AWSSignersV4 };

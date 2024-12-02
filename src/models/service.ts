@@ -63,12 +63,15 @@ export interface Statement {
 }
 
 export type FetchOptions = RequestOptions & {
-  pathname: () => string;
-  search: () => string;
+  pathname: string | (() => string);
+  search?: () => string;
   path: string;
   region: string;
   url: string;
   timeout: number;
+  params?: {
+    [key: string]: any;
+  };
 };
 
 export interface ExtendRequestInit extends RequestInit {

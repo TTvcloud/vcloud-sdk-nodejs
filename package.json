@@ -15,8 +15,8 @@
     "url": "https://github.com/TTvcloud/vcloud-sdk-nodejs"
   },
   "dependencies": {
+    "@byted/aws-signers-v4": "^0.0.8",
     "ajv": "^6.5.4",
-    "aws-sdk": "^2.297.0",
     "debug": "^4.1.1",
     "deepmerge": "^2.1.1",
     "node-fetch": "2.6.0",
