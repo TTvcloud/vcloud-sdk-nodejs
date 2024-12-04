@@ -135,21 +135,19 @@ class Client {
 
     const fetchOptions: FetchOptions = {
       timeout: this._configs.timeout!,
-      pathname: () => '/',
+      pathname: '/',
       path: '/',
       ...options,
       region: this._configs.region || REGION.CnNorth1,
       method: method,
-      search: () => `${AWS.queryParamsToString(query)}`,
-      query: util.formatQuery(query),
+      query,
       url,
       body,
     };
-
+    fetchOptions.params = fetchOptions.query;
     debug('fetchOptions: %o', fetchOptions);
-
     const signer = new AWS.AWSSignersV4(fetchOptions, service, {});
-
+    fetchOptions.query = util.formatQuery(query);
     debug('this._configs', this._configs);
     signer.addAuthorization(
       {
